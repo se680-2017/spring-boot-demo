@@ -2,12 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>MVC Demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 
-<p th:text="'Hello, ' + ${name} + '!'"  ></p>
-
+    <tr th:each="users : ${userCollection}">
+        <td th:text="${users.id}"></td>
+        <td th:text="${users.fname}"></td>
+        <td th:text="${users.lname}"></td>
+        <br/>
+    </tr>
+<!--<p th:text="'Hello, ' + ${name} + '!'"  ></p>-->
 </body>
 </html>

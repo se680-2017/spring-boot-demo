@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
 
@@ -19,7 +20,7 @@ import java.util.Collection;
 
 
 
-@RestController
+//@RestController
 public class UserController{
 
     @Autowired
@@ -53,11 +54,14 @@ public class UserController{
         userService.insertUser(user);
     }
 
-    @RequestMapping("/greeting/{name}")
-    public String greeting(@PathVariable("name") String name, Model model){
+    @GetMapping("/collection")
+    public ModelAndView getAllUsersMV(){
+        Collection<User> userCollection = userService.getAllUsers();
 
-        model.addAttribute("linkmetothymeleaf", name);
-        return "greeting";
+        ModelAndView modelAndView = new ModelAndView("users");
+        modelAndView.addObject("userCollection", userCollection);
+
+        return modelAndView;
     }
 
 
