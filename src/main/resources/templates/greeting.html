@@ -9,21 +9,5 @@
 
 <p th:text="'Hello, ' + ${name} + '!'"  ></p>
 
-    <!--Takes the username used to sign in and displays it in the homepage
-    <h1 th:inline="text">Hello, [[${#httpServletRequest.remoteUser}]]!</h1>
-
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
--->
-<!--<p th:text="'Hello, ' + ${name} + '!'"  ></p>-->
-
-
-    <!--FileStack library and API. Note: data-fp-apikey="" is left empty for security reasons since
-    code will be made public on github
-    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
-    <input type="filepicker-dragdrop" data-fp-apikey="AGb6SxKVuQUCDx2M79x5wz" data-fp-mimetypes="*/*"
-           data-fp-container="modal" data-fp-store-location="S3" onchange="alert(event.fpfile.url)"/>
--->
 </body>
 </html>

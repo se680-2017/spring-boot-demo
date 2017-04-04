@@ -1,7 +1,5 @@
 package com.example.entity;
 
-
-
 /**
  * Created by Eric on 3/17/2017.
  */
@@ -11,9 +9,6 @@ public class User{
     private int id;
     private String fname;
     private String lname;
-    private String username;
-    private String email;
-    private String password;
 
     public User(int id, String fname, String lname){
         this.id = id;
@@ -53,7 +48,5 @@ public class User{
 
         this.lname = lname;
     }
-
-
 
 }

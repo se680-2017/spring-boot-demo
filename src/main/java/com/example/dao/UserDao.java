@@ -10,8 +10,10 @@ import java.util.Map;
 /**
  * Created by Eric on 4/1/2017.
  */
+
+
 @Repository
-public class UserDaoImpl{
+public class UserDao{
 
     private static Map<Integer, User> users;
 
@@ -25,24 +27,19 @@ public class UserDaoImpl{
         };
     }
 
-
-
     public Collection<User> getAllUsers(){
-        return this.users.values();
+        return users.values();
     }
-
 
     public User getUserById(int id){
 
-        return this.users.get(id);
+        return users.get(id);
     }
-
 
     public void removeUserById(int id){
 
-        this.users.remove(id);
+        users.remove(id);
     }
-
 
     public void updateUser(User user){
         User n_user = users.get(user.getId());
@@ -55,6 +52,6 @@ public class UserDaoImpl{
 
     public void insertUser(User user){
 
-        this.users.put(user.getId(), user);
+        users.put(user.getId(), user);
     }
 }
