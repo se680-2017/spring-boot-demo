@@ -18,8 +18,6 @@ import java.util.Collection;
 
 @Controller
 
-
-
 //@RestController
 public class UserController{
 
@@ -33,35 +31,31 @@ public class UserController{
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User getUserById (@PathVariable("id") int id){
-
         return userService.getUserById(id);
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
     public void deleteUserById (@PathVariable("id") int id){
-
         userService.removeUserById(id);
     }
 
-    @RequestMapping(value = "/users/update", method = RequestMethod.PUT/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
+    @RequestMapping(value = "/users/update", method = RequestMethod.PUT)
     public void updateUser(@RequestBody User user){
-
         userService.updateUser(user);
     }
 
-    @RequestMapping(value = "/users/insert",method = RequestMethod.POST/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
+    @RequestMapping(value = "/users/insert",method = RequestMethod.POST)
     public void insertUser(@RequestBody User user){
         userService.insertUser(user);
     }
 
+
     @GetMapping("/collection")
-    public ModelAndView getAllUsersMV(){
+    public String getAllUsersMv(Model model){
         Collection<User> userCollection = userService.getAllUsers();
 
-        ModelAndView modelAndView = new ModelAndView("users");
-        modelAndView.addObject("userCollection", userCollection);
-
-        return modelAndView;
+        model.addAttribute("userCollection", userCollection);
+        return "users";
     }
 
 
